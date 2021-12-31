@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { JokeService } from '../services/joke.service';
 
 @Component({
   selector: 'angprj-jokes',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JokesComponent implements OnInit {
 
-  constructor() { }
+  jokes$!: any;
+
+  constructor(private readonly jokeService: JokeService) { }
 
   ngOnInit(): void {
+    this.jokes$ = this.jokeService.getApi().subscribe( res => this.jokes$ = res)
   }
 
 }
