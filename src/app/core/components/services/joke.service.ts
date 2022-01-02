@@ -21,6 +21,7 @@ export class JokeService {
       }))
     )
   }
-}
 
-// map(response => response.results.map(item => PartialAnimeManga.Build(item)))
+
+
+}
