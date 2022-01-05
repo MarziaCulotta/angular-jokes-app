@@ -1,30 +1,34 @@
-<h1 class="text-center">Joke App</h1>
-<div class="container">
-  <div class="card p-2 mt-4">
-    <h2 class="text-center">A new Joke every 5 seconds!</h2>
-    <p class="text-center">{{ joke$.setup }} {{joke$.delivery}}</p>
-    <div class="text-center">
-      <button type="button" class="btn btn-outline-success mx-2" (click)="like()">Like</button>
-      <button type="button" class="btn btn-outline-danger mx-2" (click)="dislike()">Dislike</button>
+<div class="jokes-app-container">
+  <h1 class="text-center text mt-3">Joke App</h1>
+  <div class="container">
+    <div class="card p-2 mt-4">
+      <h2 class="text ms-4 mt-3">Joke attuale</h2>
+      <p class="text font ms-3">{{ joke$.setup }} <br> {{joke$.delivery}}</p>
+      <div class="text-center">
+        <button type="button" class="btn-like text mx-2 rounded-pill" (click)="like()">Like</button>
+        <button type="button" class="btn-dislike text mx-2 rounded-pill" (click)="dislike()">Dislike</button>
+      </div>
     </div>
-  </div>
 
-  <div *ngIf="likedJokes.length > 0" class="d-flex flex-column card p-2 mt-4 border-success">
-    <h2>Jokes liked</h2>
-    <ol>
-      <li *ngFor="let likedJoke of likedJokes" class="py-2">
-        {{ likedJoke.setup }} {{likedJoke.delivery}} <button class="button" (click)="notLike(likedJoke)">Change</button>
-      </li>
-    </ol>
-  </div>
+    <div class="liked-jokes-container card p-2 mt-4" *ngIf="likedJokes.length > 0" >
+      <h2 class="text ms-4 mt-3">Jokes piaciuti</h2>
+      <div *ngFor="let likedJoke of likedJokes; let i = index" class="text font py-2">
+        <span class="rounded-circle">{{i + 1}}</span> {{ likedJoke.setup }} <br> {{likedJoke.delivery}}
+        <div class="text-center">
+          <button class="btn-dislike text rounded-pill mt-3" (click)="notLike(likedJoke)">Dislike</button>
+        </div><hr>
+      </div>
+    </div>
 
-  <div *ngIf="dislikedJokes.length > 0" class="d-flex flex-column card p-2 mt-4 border-danger">
-    <h2>Jokes not liked</h2>
-    <ol>
-      <li *ngFor="let dislikedJoke of dislikedJokes" class="py-2">
-        {{ dislikedJoke.setup }} {{dislikedJoke.delivery}}<button class="button" (click)="notDislike(dislikedJoke)">Change</button>
-      </li>
-    </ol>
+    <div class="dislike-jokes-container card p-2 mt-4" *ngIf="dislikedJokes.length > 0" >
+      <h2 class="text ms-4 mt-3">Jokes non piaciuti</h2>
+      <div *ngFor="let dislikedJoke of dislikedJokes; let i = index" class="text font py-2">
+        <span class="rounded-circle">{{i + 1}}</span> {{ dislikedJoke.setup }} <br> {{dislikedJoke.delivery}}
+        <div class="text-center text">
+          <button class="btn-like rounded-pill mt-3" (click)="notDislike(dislikedJoke)">Like</button>
+        </div> <hr>
+      </div>
+    </div>
   </div>
 </div>
 

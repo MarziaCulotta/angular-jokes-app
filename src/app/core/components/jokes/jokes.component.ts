@@ -40,16 +40,10 @@ export class JokesComponent implements OnInit {
 
   notLike(likedJoke: IJokes){
     this.dislikedJokes.push(likedJoke);
-
-    const index = this.likedJokes.indexOf(likedJoke);
-    this.likedJokes.splice(index, 1)
   }
 
   notDislike(dislikedJoke: IJokes){
     this.likedJokes.push(dislikedJoke);
-
-    const index = this.dislikedJokes.indexOf(dislikedJoke);
-    this.dislikedJokes.splice(index, 1);
   }
 
 
