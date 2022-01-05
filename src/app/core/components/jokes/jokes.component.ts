@@ -22,12 +22,7 @@ export class JokesComponent implements OnInit {
 
   ngOnInit(): void {
     this.jokeService.getJokeApi().subscribe( (res: IJokes) => {this.joke$ = res; console.log(res)})
-    // this.call()
-    // setInterval(this.call, 5000)
   }
-
-  // call = () => this.jokeService.getJokeApi().subscribe( res => {this.response = res; console.log(res);
-  // })
 
   like(){
     this.likedJokes.push(this.joke$)
@@ -40,10 +35,16 @@ export class JokesComponent implements OnInit {
 
   notLike(likedJoke: IJokes){
     this.dislikedJokes.push(likedJoke);
+
+    const index = this.likedJokes.indexOf(likedJoke);
+    this.likedJokes.splice(index, 1)
   }
 
   notDislike(dislikedJoke: IJokes){
     this.likedJokes.push(dislikedJoke);
+
+    const index = this.dislikedJokes.indexOf(dislikedJoke);
+    this.dislikedJokes.splice(index, 1);
   }
 
 

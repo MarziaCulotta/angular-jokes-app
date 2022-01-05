@@ -13,7 +13,10 @@
     <div class="liked-jokes-container card p-2 mt-4" *ngIf="likedJokes.length > 0" >
       <h2 class="text ms-4 mt-3">Jokes piaciuti</h2>
       <div *ngFor="let likedJoke of likedJokes; let i = index" class="text font py-2">
-        <span class="rounded-circle">{{i + 1}}</span> {{ likedJoke.setup }} <br> {{likedJoke.delivery}}
+        <span class="rounded-circle">{{i + 1}}</span>
+        <span class="ms-2">{{ likedJoke.setup }}</span>
+        <br>
+        <span class="ms-5">{{likedJoke.delivery}}</span>
         <div class="text-center">
           <button class="btn-dislike text rounded-pill mt-3" (click)="notLike(likedJoke)">Dislike</button>
         </div><hr>
@@ -23,7 +26,10 @@
     <div class="dislike-jokes-container card p-2 mt-4" *ngIf="dislikedJokes.length > 0" >
       <h2 class="text ms-4 mt-3">Jokes non piaciuti</h2>
       <div *ngFor="let dislikedJoke of dislikedJokes; let i = index" class="text font py-2">
-        <span class="rounded-circle">{{i + 1}}</span> {{ dislikedJoke.setup }} <br> {{dislikedJoke.delivery}}
+        <span class="rounded-circle">{{i + 1}}</span>
+        <span class="ms-2">{{ dislikedJoke.setup }}</span>
+        <br>
+        <span class="ms-5">{{dislikedJoke.delivery}}</span>
         <div class="text-center text">
           <button class="btn-like rounded-pill mt-3" (click)="notDislike(dislikedJoke)">Like</button>
         </div> <hr>
