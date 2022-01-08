@@ -10,8 +10,7 @@
   border-radius: 20px;
 }
 
-.btn-like,
-.btn-dislike {
+.btn-like {
   height: 35px;
   width: 100px;
 }
@@ -21,10 +20,12 @@
   background-color: #b6f3b0;
 }
 
-.btn-dislike {
+.dislike-jokes-container {
   border: 1px solid #e84242;
   background-color: #e84242;
 }
 
-
-
+.rounded-circle {
+  background-color: white;
+  padding: 4px 12px;
+}

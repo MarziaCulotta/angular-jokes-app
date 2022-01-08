@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { interval, Observable, Subscription } from 'rxjs';
 import { JokeService } from '../services/joke.service';
 import { IJokes } from 'src/app/shared/models/joke-model';
 
@@ -13,10 +12,6 @@ export class JokesComponent implements OnInit {
   joke$!: IJokes;
   likedJokes: IJokes[] = [];
   dislikedJokes: IJokes[] = [];
-
-  likedJoke!: IJokes;
-  dislikedJoke!: IJokes;
-
 
   constructor(private readonly jokeService: JokeService) { }
 

@@ -1,0 +1,16 @@
+<div class="jokes-app-container">
+  <div class="container">
+    <div class="liked-jokes-container card p-2 mt-4" *ngIf="likedJokes.length > 0" >
+      <h2 class="text ms-4 mt-3">Jokes piaciuti</h2>
+      <div *ngFor="let likedJoke of likedJokes; let i = index" class="text font py-2">
+        <span class="rounded-circle">{{i + 1}}</span>
+        <span class="ms-2">{{ likedJoke.setup }}</span>
+        <br>
+        <span class="ms-5">{{likedJoke.delivery}}</span>
+        <div class="text-center">
+          <button class="btn-dislike text rounded-pill mt-3" (click)="switchJokes.emit(likedJoke)">Dislike</button>
+          </div><hr>
+        </div>
+      </div>
+  </div>
+</div>

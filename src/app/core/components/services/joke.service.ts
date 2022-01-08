@@ -11,7 +11,7 @@ import { Observable, timer } from 'rxjs';
 export class JokeService {
 
   constructor(private readonly http: HttpClient) { }
-
+likeJokes :IJokes[]=[]
   getJokeApi(): Observable<IJokes> {
     return timer(1, 5000).pipe(
       switchMap(() => this.http.get<IJokes>( environment.apiUrl)),
@@ -20,5 +20,11 @@ export class JokeService {
         delivery: res.delivery
       }))
     )
+  }
+  getLikeJokes():IJokes[]{
+    return this.likeJokes
+  }
+  pushLikeJokes(joke:IJokes):void {
+    this.likeJokes = [...this.likeJokes,joke]
   }
 }
