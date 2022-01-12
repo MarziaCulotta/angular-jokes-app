@@ -1,0 +1,19 @@
+<div class="jokes-app-container">
+  <h1 class="text-center text mt-3">Joke App</h1>
+  <div class="container">
+    <div class="card p-2 mt-4">
+      <h2 class="text ms-4 mt-3">Joke attuale</h2>
+      <p class="text font ms-3">{{ joke$.setup }} <br> {{joke$.delivery}}</p>
+      <div class="text-center">
+        <button type="button" class="btn-like text mx-2 rounded-pill" (click)="like()">Like</button>
+        <button type="button" class="btn-dislike text mx-2 rounded-pill" (click)="dislike()">Dislike</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<angprj-liked-jokes [likedJokes]="likedJokes" (switchJokes)="notLike($event)"></angprj-liked-jokes>
+<angprj-disliked-jokes [dislikedJokes]="dislikedJokes" (switchJokes)="notDislike($event)"></angprj-disliked-jokes>
+
+
+
